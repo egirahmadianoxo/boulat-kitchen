@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boulat Kitchen | Gluten Free Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#17120F; --paper:#1F1915; --ink:#EDE4D6; --cocoa:#2A201A; --mute:#9C8F80; --line:#3A2F28; --gold:#D9B86A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.rule{height:1px;background:var(--line);border:0}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(23,18,15,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .brand{display:flex;align-items:center;gap:12px;font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
+nav .brand img{width:36px;height:36px;border-radius:50%}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--mute);text-decoration:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+nav a:hover{color:var(--ink)}
+@media(max-width:640px){nav ul{display:none}}
+
+/* hero */
+.hero{padding:clamp(72px,12vw,150px) 0 clamp(56px,8vw,96px);text-align:center}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(44px,7vw,92px);line-height:1.02;letter-spacing:-.01em;margin:20px 0 28px}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero p{max-width:560px;margin:0 auto;color:var(--mute);font-size:16px}
+.hero .marks{display:flex;justify-content:center;gap:40px;margin-top:40px}
+.hero .marks span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);font-weight:500;position:relative;padding-top:14px}
+.hero .marks span::before{content:"";position:absolute;top:0;left:50%;width:18px;height:1px;background:var(--gold);transform:translateX(-50%)}
+
+/* slideshow */
+.show{position:relative;width:min(100%,720px);margin:0 auto;aspect-ratio:1;overflow:hidden;border-radius:2px;background:#2A221D}
+.show figure{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.show figure.on{opacity:1}
+.show img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.04) brightness(.96)}
+.show figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px clamp(20px,4vw,40px);color:#fff;background:linear-gradient(to top,rgba(15,10,8,.75),rgba(15,10,8,0));font-family:"Cormorant Garamond",serif;font-size:clamp(18px,2.4vw,24px);font-style:italic;font-weight:300}
+.show .dots{position:absolute;top:16px;right:16px;display:flex;gap:6px;z-index:2}
+.show .dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .4s}
+.show .dots i.on{background:var(--gold)}
+
+/* sections */
+section{padding:clamp(64px,9vw,120px) 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.head h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(34px,4.6vw,58px);line-height:1.05;margin-top:14px}
+.head p{color:var(--mute);font-size:15px;max-width:440px;justify-self:end}
+@media(max-width:720px){.head{grid-template-columns:1fr;gap:16px}.head p{justify-self:start}}
+
+/* cookie grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,56px) clamp(24px,3vw,40px)}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.item figure{aspect-ratio:1;overflow:hidden;border-radius:2px;background:#2A221D}
+.item img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.05) brightness(.95);transition:transform 1.2s ease}
+.item:hover img{transform:scale(1.035)}
+.item .meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:18px}
+.item h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:26px;line-height:1.1}
+.item .note{color:var(--mute);font-size:14px;margin-top:6px;max-width:420px}
+.price{font-family:"Cormorant Garamond",serif;font-size:20px;white-space:nowrap;text-align:right;line-height:1.3}
+.price small{display:block;font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.price .alt{color:var(--mute);font-size:17px}
+
+/* list sections */
+.split{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,80px);align-items:start}
+@media(max-width:800px){.split{grid-template-columns:1fr}}
+.split figure{aspect-ratio:1;overflow:hidden;border-radius:2px;position:sticky;top:84px}
+.split img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.05) brightness(.95)}
+@media(max-width:800px){.split figure{position:static}}
+.list{list-style:none}
+.list li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.list li:first-child{border-top:1px solid var(--line)}
+.list .n{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:400}
+.list .d{display:block;font-size:13px;color:var(--mute);margin-top:2px}
+.list .p{font-family:"Cormorant Garamond",serif;font-size:20px;white-space:nowrap}
+.list .p .alt{color:var(--mute);font-size:17px}
+.caption{font-size:12px;color:var(--mute);letter-spacing:.04em;margin-top:14px}
+.sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--gold);margin:40px 0 10px}
+.sub:first-child{margin-top:0}
+
+.photo{width:min(100%,720px);margin:0 auto clamp(36px,5vw,56px);aspect-ratio:1;overflow:hidden;border-radius:2px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.05) brightness(.95)}
+.menu{max-width:720px;margin:0 auto}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,24px)}
+.trio figure{aspect-ratio:1;overflow:hidden;border-radius:2px}
+.trio img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.05) brightness(.95)}
+@media(max-width:640px){.trio{grid-template-columns:1fr}}
+/* statement */
+.statement{background:var(--gold);color:#1C1512;text-align:center}
+.statement p{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(24px,3.4vw,40px);line-height:1.3;max-width:820px;margin:20px auto 0}
+.statement .eyebrow{color:#5C4420}
+.statement strong{font-weight:600}
+
+/* order */
+.order{text-align:center;padding-bottom:clamp(40px,6vw,80px)}
+.order h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(34px,4.6vw,56px);margin:14px 0 18px}
+.order p{color:var(--mute);max-width:520px;margin:0 auto}
+.order .cta{display:inline-block;margin-top:34px;padding:16px 40px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;transition:background .3s,color .3s}
+.order .cta:hover{background:var(--gold);border-color:var(--gold);color:#1C1512}
+.order .ig{margin-top:18px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.order .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.order .cta{display:inline-flex;align-items:center;gap:10px;margin-top:0}
+.order .contact{list-style:none;display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.order .contact a{display:inline-flex;align-items:center;gap:8px;color:var(--mute);text-decoration:none;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.order .contact a:hover{color:var(--gold)}
+.baker{padding-bottom:0}
+.baker .bio h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(34px,4.6vw,56px);line-height:1.05;margin:14px 0 22px}
+.baker .bio p{color:var(--mute);font-size:16px;max-width:460px;margin-bottom:14px}
+.baker .facts{list-style:none;margin-top:30px;max-width:460px}
+.baker .facts li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-family:"Cormorant Garamond",serif;font-size:20px}
+.baker .facts li:first-child{border-top:1px solid var(--line)}
+.baker .facts span{font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);align-self:center}
+.fab{position:fixed;right:18px;bottom:18px;z-index:20;display:flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:999px;background:#25D366;color:#0B1A10;text-decoration:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.fab:hover{background:#2EE07A}
+@media(max-width:640px){.fab span{display:none}.fab{padding:14px}}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand"><img src="img/logo.png" alt="Boulat Kitchen"><span>Boulat Kitchen</span></div>
+  <ul><li><a href="#cookies">Cookies</a></li><li><a href="#brownies">Brownies</a></li><li><a href="#banana">Banana Bread</a></li><li><a href="#hampers">Hampers</a></li><li><a href="#baker">The Baker</a></li><li><a href="#order">Order</a></li></ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Gluten Free Collection</div>
+  <h1>Baked without wheat.<br><em>Without compromise.</em></h1>
+  <p>Soft cookies, brownies and banana bread. All gluten free, all baked to order.</p>
+  <div class="marks"><span>Gluten Free</span><span>Halal Certified</span><span>Made to Order</span></div>
+</div></header>
+
+<div class="wrap">
+  <div class="show" id="show">
+    <figure class="on"><img src="img/banana-loaf.jpg" alt=""><figcaption>Banana bread, walnut and chocolate chip.</figcaption></figure>
+    <figure><img src="img/brownie-cups.jpg" alt=""><figcaption>Brownies and blondies, by the cup.</figcaption></figure>
+    <figure><img src="img/hamper-set.jpg" alt=""><figcaption>Hampers, curated to order.</figcaption></figure>
+    <figure><img src="img/hamper-closed.jpg" alt=""><figcaption>Boxed and ribboned.</figcaption></figure>
+    <figure><img src="img/healthy-choco.jpg" alt=""><figcaption>Healthy choco cookies, by the jar.</figcaption></figure>
+    <figure><img src="img/bite-brownies.jpg" alt=""><figcaption>Brownies, blondies and cheese swirl.</figcaption></figure>
+    <figure><img src="img/original.jpg" alt=""><figcaption>The Original.</figcaption></figure>
+    <figure><img src="img/double-choco.jpg" alt=""><figcaption>Double Chocolate.</figcaption></figure>
+    <figure><img src="img/biscoff.jpg" alt=""><figcaption>Biscoff.</figcaption></figure>
+    <figure><img src="img/red-velvet.jpg" alt=""><figcaption>Red Velvet &amp; Cream Cheese.</figcaption></figure>
+    <figure><img src="img/assorted.jpg" alt=""><figcaption>The assortment.</figcaption></figure>
+    <div class="dots"></div>
+  </div>
+</div>
+
+<section id="cookies"><div class="wrap">
+  <div class="head">
+    <div><div class="eyebrow">I. Cookies</div><h2>Thick, soft,<br>baked to order.</h2></div>
+    <p>Two sizes: 110 g, or a smaller 55 g. Priced per piece.</p>
+  </div>
+  <div class="grid">
+    <div class="item"><figure><img src="img/original.jpg" alt="Original chocolate chip cookie"></figure>
+      <div class="meta"><div><h3>Original</h3><p class="note">Nutty brown butter dough with dark chocolate chips.</p></div>
+      <div class="price">IDR 35K<small>110 g</small><span class="alt">IDR 26.5K</span><small>55 g</small></div></div></div>
+    <div class="item"><figure><img src="img/double-choco.jpg" alt="Double chocolate cookie"></figure>
+      <div class="meta"><div><h3>Double Chocolate</h3><p class="note">Cocoa dough, chocolate chunks and a fudgy centre.</p></div>
+      <div class="price">IDR 35K<small>110 g</small><span class="alt">IDR 26.5K</span><small>55 g</small></div></div></div>
+    <div class="item"><figure><img src="img/biscoff.jpg" alt="Biscoff cookie"></figure>
+      <div class="meta"><div><h3>Biscoff</h3><p class="note">Caramelised biscuit spread folded into the dough, with a whole Biscoff biscuit on top.</p></div>
+      <div class="price">IDR 38K<small>110 g</small><span class="alt">IDR 28.5K</span><small>55 g</small></div></div></div>
+    <div class="item"><figure><img src="img/red-velvet.jpg" alt="Red velvet cookie with cream cheese"></figure>
+      <div class="meta"><div><h3>Red Velvet &amp;<br>Cream Cheese</h3><p class="note">Red velvet cocoa cookie with a soft cream cheese centre.</p></div>
+      <div class="price">IDR 38K<small>110 g</small><span class="alt">IDR 28.5K</span><small>55 g</small></div></div></div>
+    <div class="item"><figure><img src="img/healthy-choco.jpg" alt="Healthy choco cookies in a jar"></figure>
+      <div class="meta"><div><h3>Healthy Choco Cookies</h3><p class="note">Small cocoa cookies with an almond on top. Sold by the cup.</p></div>
+      <div class="price">IDR 50K<small>12 oz cup</small></div></div></div>
+    <div class="item"><figure><img src="img/assorted.jpg" alt="Assorted soft cookies"></figure>
+      <div class="meta"><div><h3>The Assortment</h3><p class="note">Any mix of the four soft cookies. Choose when you order.</p></div>
+      <div class="price">from IDR 26.5K<small>per piece</small></div></div></div>
+  </div>
+</div></section>
+
+<section class="statement"><div class="wrap">
+  <div class="eyebrow">From the kitchen</div>
+  <p>There is room for something sweet in a <strong>gluten-free</strong> day. That is what we bake for at Boulat.</p>
+</div></section>
+
+<section id="brownies"><div class="wrap">
+  <div class="head">
+    <div><div class="eyebrow">II. Brownies &amp; Blondies</div><h2>Dense, dark,<br>cut by hand.</h2></div>
+    <p>Bite-sized pieces in a 12 oz cup.</p>
+  </div>
+  <figure class="photo"><img src="img/brownie-cups.jpg" alt="Brownies and blondies in cups"></figure>
+  <div class="menu">
+    <ul class="list">
+      <li><span><span class="n">Classic Brownies</span><span class="d">Rich chocolate in a bite-sized brownie.</span></span><span class="p">IDR 30K</span></li>
+      <li><span><span class="n">Blondies</span><span class="d">Golden bites with a mellow caramel sweetness.</span></span><span class="p">IDR 30K</span></li>
+      <li><span><span class="n">Cheese Brownies</span><span class="d">Chocolate brownies with a savoury touch of cheese.</span></span><span class="p">IDR 35K</span></li>
+      <li><span><span class="n">Peppermint Brownies</span><span class="d">Chocolate brownies with a cool peppermint finish.</span></span><span class="p">IDR 33K</span></li>
+      <li><span><span class="n">Mixed Cup</span><span class="d">A little of everything in one cup.</span></span><span class="p">IDR 32K</span></li>
+      <li><span><span class="n">Mini Brownie Cup</span><span class="d">Mini brownies in cupcake form.</span></span><span class="p">IDR 50K</span></li>
+    </ul>
+    <div class="sub">Full slab, 20 x 20 cm</div>
+    <figure class="photo" style="margin-top:18px"><img src="img/slab.jpg" alt="Brownies, blondies and cheese swirl cut from the slab"></figure>
+    <ul class="list">
+      <li><span><span class="n">Classic Brownies</span><span class="d">Rich chocolate, one whole slab.</span></span><span class="p">IDR 140K</span></li>
+      <li><span><span class="n">Blondies</span><span class="d">Golden, with a mellow caramel sweetness.</span></span><span class="p">IDR 140K</span></li>
+      <li><span><span class="n">Cheese Brownies</span><span class="d">Chocolate brownies with a savoury touch of cheese.</span></span><span class="p">IDR 160K</span></li>
+      <li><span><span class="n">Peppermint Brownies</span><span class="d">Chocolate brownies with a cool peppermint finish.</span></span><span class="p">IDR 150K</span></li>
+    </ul>
+    <p class="caption">All prices in Indonesian Rupiah.</p>
+  </div>
+</div></section>
+
+<section id="banana" style="padding-top:0"><div class="wrap">
+  <hr class="rule" style="margin-bottom:clamp(64px,9vw,120px)">
+  <div class="head">
+    <div><div class="eyebrow">III. Banana Bread</div><h2>Moist, dense,<br>made with ripe bananas.</h2></div>
+    <p>One loaf, 20 x 10 cm. Four kinds.</p>
+  </div>
+  <figure class="photo"><img src="img/banana-loaf.jpg" alt="Banana bread with walnuts and chocolate chips"></figure>
+  <div class="menu">
+    <ul class="list">
+      <li><span><span class="n">Original</span><span class="d">Plain banana bread.</span></span><span class="p">IDR 90K</span></li>
+      <li><span><span class="n">Chocolate Chip</span><span class="d">With dark chocolate chips.</span></span><span class="p">IDR 100K</span></li>
+      <li><span><span class="n">Walnut</span><span class="d">With walnuts.</span></span><span class="p">IDR 110K</span></li>
+      <li><span><span class="n">Walnut &amp; Chocolate Chip</span><span class="d">With walnuts and dark chocolate chips.</span></span><span class="p">IDR 125K</span></li>
+    </ul>
+    <p class="caption">All prices in Indonesian Rupiah.</p>
+  </div>
+</div></section>
+
+<section id="hampers" style="padding-top:0"><div class="wrap">
+  <hr class="rule" style="margin-bottom:clamp(64px,9vw,120px)">
+  <div class="head">
+    <div><div class="eyebrow">IV. Hampers</div><h2>Curated hampers,<br>put together your way.</h2></div>
+    <p>Choose any pieces from the collection. Boxed, lined and tied with a ribbon, with a handwritten note if you wish. Priced by what goes in.</p>
+  </div>
+  <div class="trio">
+    <figure><img src="img/hamper-closed.jpg" alt="Hamper box with ribbon"></figure>
+    <figure><img src="img/hamper-open.jpg" alt="Hamper box opened"></figure>
+    <figure><img src="img/hamper-set.jpg" alt="Hamper with brownie cups and banana bread"></figure>
+  </div>
+  <p class="caption" style="text-align:center">Ask on WhatsApp for a hamper quote.</p>
+</div></section>
+
+<section id="baker" class="baker"><div class="wrap">
+  <hr class="rule" style="margin-bottom:clamp(64px,9vw,120px)">
+  <div class="split">
+    <figure><img src="img/rini.jpg" alt="Rini Wahyuningsih, Boulat Kitchen"></figure>
+    <div class="bio">
+      <div class="eyebrow">The Baker</div>
+      <h2>Rini Wahyuningsih</h2>
+      <p>Certified baker. More than ten years in bakery, specialising in gluten free. Based in Jakarta.</p>
+      <p>Boulat Kitchen is Halal certified by MUI. Everything is baked by hand, in small batches, from premium ingredients.</p>
+      <ul class="facts">
+        <li><span>Specialty</span>Gluten free baking</li>
+        <li><span>Experience</span>10+ years</li>
+        <li><span>Certification</span>Halal MUI</li>
+        <li><span>Based in</span>Jakarta</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="order" class="order"><div class="wrap">
+  <hr class="rule" style="margin-bottom:clamp(56px,8vw,96px)">
+  <div class="eyebrow">To Order</div>
+  <h2>Made to order.</h2>
+  <p>Send a message on WhatsApp to ask a question or place an order.</p>
+  <div class="ctas">
+    <a class="cta" href="https://wa.me/6287888300899?text=Hello%20Boulat%20Kitchen%2C%20I%20would%20like%20to%20enquire%20about%20your%20gluten%20free%20collection." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-4.5 4v-4A1.5 1.5 0 0 1 4 14.5z"/></svg>
+      Enquire on WhatsApp</a>
+    <a class="cta" href="https://wa.me/6287888300899?text=Hello%20Boulat%20Kitchen%2C%20I%20would%20like%20to%20place%20an%20order.%0AItems%3A%20%0AQuantity%3A%20%0ADate%3A%20" target="_blank" rel="noopener">
+      Place an Order</a>
+  </div>
+  <ul class="contact">
+    <li><a href="https://wa.me/6287888300899" target="_blank" rel="noopener">WhatsApp 0878 8830 0899</a></li>
+    <li><a href="https://instagram.com/boulat.kitchen" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17" cy="7" r=".9" fill="currentColor" stroke="none"/></svg>
+      @boulat.kitchen</a></li>
+  </ul>
+</div></section>
+
+<div class="wrap"><footer>
+  <span>Boulat Kitchen · Halal MUI · @boulat.kitchen · 0878 8830 0899</span>
+  <span>Prices in IDR · Valid November 2026</span>
+</footer></div>
+
+<a class="fab" href="https://wa.me/6287888300899?text=Hello%20Boulat%20Kitchen%2C%20I%20would%20like%20to%20enquire%20about%20your%20gluten%20free%20collection." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-4.5 4v-4A1.5 1.5 0 0 1 4 14.5z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></svg>
+  <span>WhatsApp</span>
+</a>
+<script>
+(function(){
+  var s=document.getElementById('show'),f=s.querySelectorAll('figure'),d=s.querySelector('.dots'),i=0;
+  f.forEach(function(_,k){var b=document.createElement('i');if(!k)b.className='on';d.appendChild(b)});
+  var dots=d.children;
+  setInterval(function(){f[i].classList.remove('on');dots[i].classList.remove('on');i=(i+1)%f.length;f[i].classList.add('on');dots[i].classList.add('on')},4000);
+})();
+
+</script>
+</body>
+</html>
